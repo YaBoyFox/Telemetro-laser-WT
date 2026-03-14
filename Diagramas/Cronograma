@@ -1,0 +1,19 @@
+INICIO (Marzo)
+      |
++-----V-----+      Meta 1: ADQUISICIÓN Y PRUEBAS I2C
+|   ABRIL   |  --> Conexión exitosa sensor-microcontrolador.
++-----+-----+      Lecturas en crudo (RAW) funcionando.
+      |
++-----V-----+      Meta 2: COMUNICACIÓN SERIAL
+|    MAYO   |  --> Puente de datos Micro -> PC funcionando.
++-----+-----+      Python lee y reconoce los valores.
+      |
++-----V-----+      Meta 3: PROCESAMIENTO Y FILTRADO
+|   JUNIO   |  --> Implementación de promedios móviles en Python.
++-----+-----+      Manejo de errores y desconexiones.
+      |
++-----V-----+      Meta 4: PROTOTIPO FINAL Y DOCS
+|   JULIO   |  --> Montaje final en gabinete/soporte.
++-----+-----+      Pruebas de campo y reporte final.
+      |
+FIN (31 DE JULIO)
