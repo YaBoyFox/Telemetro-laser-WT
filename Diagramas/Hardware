@@ -1,18 +1,29 @@
-[ ENERGÍA ]
-           |
-      ( Cable USB )
-           |
-    +------V-------+          +-----------------------+
-    |              |   I2C    |  Sensor Láser ToF     |
-    | Microcontrol | <------> |       VL53L0X         |
-    |  (Arduino/   |          | (Emisor/Receptor IR)  |
-    |   ESP32)     |          +-----------------------+
-    |              |
-    +------T-------+
-           |
-      ( Puerto Serial )
-           |
-    +------V-------+
-    |  PC / Laptop | <--- Interfaz en Python
-    | (Visualización)|
-    +--------------+
+NIVEL FÍSICO (Hardware)               NIVEL LÓGICO (Software)
+=======================               =======================
+
+      [ OBJETO ]
+          |
+    (Reflexión Láser)
+          |
++---------V----------+          +---------------------------+
+|  SENSOR VL53L0X    |  I2C     |    BIBLIOTECA SENSOR      |
+|  (Módulo ToF)      +----------+  (Driver de Distancia)    |
++---------+----------+          +-------------+-------------+
+          |                                   |
+          V                                   V
++--------------------+          +---------------------------+
+|   MICRO-CEREBRO    |  USB     |    FIRMWARE CONTROL       |
+| (Arduino / ESP32)  +----------+ (Lectura -> Envío Serial) |
++---------+----------+          +-------------+-------------+
+          |                                   |
+          V                                   V
++--------------------+          +---------------------------+
+|    PC / LAPTOP     |  SERIAL  |    SCRIPT PRINCIPAL       |
+|  (Procesamiento)   +----------+  (Python + PySerial)      |
++--------------------+          +-------------+-------------+
+                                              |
+                                              V
+                                +---------------------------+
+                                |    INTERFAZ DE USUARIO    |
+                                |  (Visualización de Datos) |
+                                +---------------------------+
