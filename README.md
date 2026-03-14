@@ -1,1 +1,1 @@
-Lo que se busca en este proyecto es un visualizador de mapas del videojuego terraria mediante la lectura de archivos .WLD
+Lo que se busca con este proyecto es crear un telemetro laser .WLD
