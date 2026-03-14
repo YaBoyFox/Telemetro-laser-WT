@@ -1,1 +1,1 @@
-Lo que se busca con este proyecto es crear un telemetro laser .WLD
+Lo que se busca con este proyecto es crear un telemetro laser 
