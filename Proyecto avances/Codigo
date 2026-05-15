@@ -1,0 +1,52 @@
+#include <Wire.h>
+#include <Adafruit_VL53L0X.h>
+#include <SoftwareSerial.h>
+
+// Crear el objeto del sensor
+Adafruit_VL53L0X lox = Adafruit_VL53L0X();
+
+// Configurar Bluetooth: Pin 10 como RX (conectado al TX del HC-05) y Pin 11 como TX (conectado al RX del HC-05)
+SoftwareSerial miBluetooth(10, 11); 
+
+void setup() {
+  // Iniciar comunicación con la computadora (opcional, para depuración)
+  Serial.begin(9600);
+  
+  // Iniciar comunicación con el módulo Bluetooth (9600 baudios es la velocidad de fábrica del HC-05)
+  miBluetooth.begin(9600); 
+
+  Serial.println("Iniciando Telémetro...");
+  miBluetooth.println("Telémetro Listo. Envia 'M' para medir.");
+
+  // Iniciar el sensor
+  if (!lox.begin()) {
+    Serial.println("Error: No se detecta el sensor VL53L0X. Revisa los cables I2C.");
+    miBluetooth.println("Error de sensor");
+    while(1); // Detener el programa si falla el sensor
+  }
+}
+
+void loop() {
+  // Revisar si llegó algún mensaje por Bluetooth
+  if (miBluetooth.available()) {
+    char comando = miBluetooth.read();
+    
+    // Si el comando es la letra 'M' (mayúscula o minúscula)
+    if (comando == 'M' || comando == 'm') {
+      
+      VL53L0X_RangingMeasurementData_t measure;
+      
+      // Tomar la lectura (false = sin imprimir datos extra de depuración)
+      lox.rangingTest(&measure, false); 
+
+      // Verificar si el objeto está dentro del rango válido (Status 4 es fuera de rango)
+      if (measure.RangeStatus != 4) {  
+        miBluetooth.print("Distancia: ");
+        miBluetooth.print(measure.RangeMilliMeter);
+        miBluetooth.println(" mm");
+      } else {
+        miBluetooth.println("Fuera de rango (Demasiado lejos o sin objeto)");
+      }
+    }
+  }
+}
