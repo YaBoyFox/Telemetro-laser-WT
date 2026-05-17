@@ -9,21 +9,22 @@ Adafruit_VL53L0X lox = Adafruit_VL53L0X();
 SoftwareSerial miBluetooth(10, 11); 
 
 void setup() {
-  // Iniciar comunicación con la computadora (opcional, para depuración)
   Serial.begin(9600);
-  
-  // Iniciar comunicación con el módulo Bluetooth (9600 baudios es la velocidad de fábrica del HC-05)
   miBluetooth.begin(9600); 
 
   Serial.println("Iniciando Telémetro...");
-  miBluetooth.println("Telémetro Listo. Envia 'M' para medir.");
+  
+  // Pequeña pausa para que el sensor se estabilice tras recibir energía
+  delay(500); 
 
-  // Iniciar el sensor
+  // Intentar iniciar el sensor
   if (!lox.begin()) {
-    Serial.println("Error: No se detecta el sensor VL53L0X. Revisa los cables I2C.");
-    miBluetooth.println("Error de sensor");
-    while(1); // Detener el programa si falla el sensor
+    Serial.println(F("Error: No se detectó el VL53L0X"));
+    while (1);
   }
+
+  Serial.println(F("Sensor VL53L0X detectado y listo."));
+  miBluetooth.println("Sistema Listo. Envia 'M' para medir.");
 }
 
 void loop() {
