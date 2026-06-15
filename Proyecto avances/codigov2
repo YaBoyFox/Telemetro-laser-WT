@@ -1,0 +1,71 @@
+#include <Wire.h>
+#include <Adafruit_VL53L0X.h>
+#include <SoftwareSerial.h>
+
+Adafruit_VL53L0X lox = Adafruit_VL53L0X();
+SoftwareSerial miBluetooth(10, 11); 
+
+const int ledDiagnostico = 13; // LED integrado en la placa
+
+void setup() {
+  pinMode(ledDiagnostico, OUTPUT);
+  Serial.begin(9600);
+  miBluetooth.begin(9600);
+  
+  Serial.println(F("Iniciando Telémetro Autónomo..."));
+  
+
+  delay(1500); 
+
+  
+  if (!lox.begin()) {
+    Serial.println(F("Fallo al iniciar el VL53L0X"));
+    while(1) {
+      digitalWrite(ledDiagnostico, HIGH); delay(100);
+      digitalWrite(ledDiagnostico, LOW);  delay(100);
+    }
+  }
+
+
+  digitalWrite(ledDiagnostico, HIGH);
+  delay(1000);
+  digitalWrite(ledDiagnostico, LOW);
+
+  Serial.println(F("Sistema Listo. Iniciando mediciones continuas..."));
+  miBluetooth.println("--- Telémetro Listo (Intervalo: 2s) ---");
+}
+
+void loop() {
+  VL53L0X_RangingMeasurementData_t measure;
+  
+
+  digitalWrite(ledDiagnostico, HIGH); 
+  
+  
+  lox.rangingTest(&measure, false); 
+
+  if (measure.RangeStatus != 4) {
+    // Convertir de milímetros a centímetros
+    float distancia_cm = measure.RangeMilliMeter / 10.0;
+    
+   
+    miBluetooth.print("Distancia: ");
+    miBluetooth.print(distancia_cm, 1); // 1 decimal de precisión
+    miBluetooth.println(" cm");
+    
+    
+    Serial.print("Midiendo de forma autónoma: ");
+    Serial.print(distancia_cm, 1);
+    Serial.println(" cm");
+  } 
+  else {
+    miBluetooth.println("Fuera de rango o lectura inestable");
+    Serial.println("Fuera de rango");
+  }
+
+ 
+  digitalWrite(ledDiagnostico, LOW);
+
+  // Intervalo de espera de 2 segundos antes de la siguiente medición
+  delay(2000); 
+}
