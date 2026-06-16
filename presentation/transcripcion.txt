@@ -1,0 +1,205 @@
+Buen día. 
+00:03
+Este es el vídeo de presentación sobre el proyecto de Telémetro láser. 
+00:07
+Bueno, mi mi nombre, yo soy bueno Edgar a Patricio Ramos Ortega y mi compañía, mi compañero José Adonay bien. 
+00:15
+Antes de mostrar el proyecto en funcionamiento, permítanme explicar mis aportes al proyecto. 
+00:19
+En mi caso yo me este.
+00:22
+Se encargue del.
+00:23
+Del armado del circuito, como.
+00:27
+¿Cómo se puede ver aquí?
+00:29
+Ya ya está armado, pero no, no contestó por el momento.
+00:34
+Y también 
+00:35
+del Código Arduino del Código en Arduino Ide, que pues estará mostrando en se estará mostrando en pantalla.
+00:42
+Que también estarán ubicados en el repositorio de github. 
+00:45
+En en mi caso, al realizar esta parte del trabajo, pues tuve ciertas dificultades, más que nada aprendiendo a cómo usar.
+00:52
+Este sensor.
+00:53
+El sensor láser.
+00:55
+
+00:56
+Además, se cambiar la fuente de la fuente del proyecto, ya que pues estaba usando esto, pero no suministraba la suficiente corriente, así que lo que hice fue cambiarlo para que las la energía la suministre propio Arduino. 
+01:09
+Y si funciona ahora de esa manera funcionaba.
+01:13
+Fue 
+01:13
+bastante simple a pesar de tener problemas con la adaptación de la aplicación para no depender de la terminal para darle esa portabilidad.
+01:22
+Y bueno, este en un momento le explicará a mi compañero, mientras que a continuación le les explicará la parte del proyecto.
+01:31
+Hola, qué tal como lo mencionó mi compañero, mi nombre es José Donaire Arcos Fernández y yo me encargué del desarrollo de la aplicación en APP.
+01:37
+Al principio utilicé a designar designar.
+01:42
+Que fue este, que es un programa que funciona a través de bloques.
+01:46
+Y si bien ya habíamos venido, ya había creado la los. 
+01:50
+El código, por así decirlo, ya había conectado los bloques, ya había hecho la interfaz.
+01:51
+
+01:56
+Este y ya había descargado la APP cae todo. 
+01:58
+Llegamos al momento de prueba que lo probamos en el laboratorio de la facultad y este nos dimos cuenta que si bien sí se conectaba al Bluetooth.
+02:07
+No mostraba 
+02:08
+los resultados de las mediciones, a pesar de a veces a pesar de haberse conectado ya.
+02:13
+Entonces este nos dimos cuenta 
+02:15
+que tuvimos un pequeño error de comunicación.
+02:18
+
+02:19
+Ya que la aplicación solamente funciona como un receptor, mientras que mi compañero utilizó utilizó un código en el andino.
+02:29
+En la terminal, que sólo funciona como un transmisor. 
+02:32
+Así que para resolver eso intentamos 2 cosas, la primera siendo cambiar el Código del Arduino por una energía, el código funcione de manera automática y el HC cero 5 se encarga. 
+02:44
+Se encarga de enviar simplemente la.
+02:47
+Las mediciones en la aplicación.
+02:49
+Cosa que no funcionó. 
+02:51
+Entonces nos tomamos la segunda opción, que fue cambiarnos a.
+02:56
+App.
+02:57
+A Android Studios.
+02:59
+Y pero al ser un poquito más complicado que en mi top designer, donde en mi ipad solo es este.
+03:06
+Pues conectar bloques y ya.
+03:08
+Es un poco más fácil. 
+03:10
+Por así decirlo, este en Android Studios es crear código completamente de cero. 
+03:16
+Entonces aquí sí necesitamos necesita ayuda. 
+03:17
+
+03:18
+Mi compañero aquí si tuvimos que repartirnos el.
+03:21
+El.
+03:23
+El trabajo entre los 2, ya que pues era muy complicado, bueno, se me hizo muy complicado a mí. 
+03:29
+Entonces este este ayuda de él y ya entre los 2 terminamos el Código para el Android Studios y así tener una aplicación por fin funcional.
+03:38
+Y este 
+03:39
+el código del del Arduino, junto con la nueva versión de la aplicación, van a estar en hip hop.
+03:46
+Y también la aplicación vieja en que yo hice en mi APP.
+03:52
+Este designer este también estará tanto la foto de los bloques como la APP para también estarán hip hop.
+03:59
+
+04:01
+Para tener una versión vieja, por así decirlo.
+04:05
+Bien, después de la explicación de mi compañero, llegamos a este punto donde pues que como se lo mostré anteriormente, tengo en mis manos el producto final.
+04:12
+
+04:13
+Aunque pudieron haber haberse algunos haberse hecho algunos cambios, como hacer que que la aplicación también sea una transmisora y no sólo una receptora.
+04:22
+Este el uso de Android Studio fue lo suficientemente complicado como para.
+04:25
+
+04:27
+Intentar hacer eso cuando ya tenemos, por así decirlo, la aplicación funcional.
+04:34
+Y pues este proyecto estuvo siempre pensado para esta no depender de estar conectado a la computadora en mi en el caso de pues tener más portabilidad.
+04:45
+Al darle la corriente al circuito, lo primero que hacemos es conectar el el módulo de la aplicación o no está encendido, pero en un momento se les pondrá un 
+04:54
+vida donde se muestre.
+04:57
+Bien, como aquí se puede ver, la aplicación ya está, ya está activa.
+05:03
+Ya está en el dispositivo, ahora solo hay que conectar el módulo Bluetooth para funcionamiento.
+05:12
+¿Es este?
+05:17
+¿Oye, si lo conecto?
+05:20
+Ah.
+05:22
+Ahí está, ya se ya se conectó.
+05:26
+Y ahora ya se conectó perfectamente el módulo.
+05:31
+Y ahora el.
+05:33
+El sensor va a lanzar el láser que va a rebotar, luego medirla y medir la distancia.
+05:38
+Obviamente, pues tiene una limitación de de.
+05:41
+El.
+05:43
+De distancia, así que tampoco me distancias muy largas, pero como se puede ver aquí, apunta hacia otra superficie.
+05:50
+Cada 2 segundos se actualiza el se actualiza el registro.
+05:55
+Después de eso se entra a la aplicación y se vincula a la se vincula el módulo del módulo Bluetooth con la aplicación.
+06:03
+¿Ya después de eso, EH? 
+06:04
+La la aplicación te empezará a mostrar los datos de medición cada 2 segundos.
+06:10
+Y hay que tener en cuenta que al hacerlo, esto tiene 
+06:13
+cierto margen de error, ya que el módulo láser viaja a la velocidad de la luz. 
+06:17
+Entonces cuando rebota la luz y recibe el módulo láser mientras estás haciendo los cálculos y arruino y hay un pequeño desfase de esa de esa de esa velocidad de la luz. 
+06:27
+Así que pues.
+06:28
+No es del todo preciso, pero es funcional.
+06:31
+
+06:35
+Muy bien, mi compañero les dirá, les dirá lo siguiente.
+06:38
+Y bueno, pues realmente sería todo el proyecto. 
+06:41
+Algunas cosas se podían mejorar a este de este proyecto, como el caso del microcontrolador o mejorar su portabilidad.
+06:48
+Pero pues este creemos que el hecho de hacer una propia por un por el para 
+06:53
+el telémetro le da cierto este mérito ya, ya que lo más importante de esto fue la programación.
+07:00
+Y entonces eso fue todo lo que hicimos. 
+07:02
+Si nada más que agregar, eso sería esta presentación del proyecto, como ya como ya 
+07:07
+se ha mencionado, el Código, los códigos, todos los códigos utilizamos tanto en las versiones que no funcionaron en el caso de la aplicación y tanto los códigos que sí funcionaron estarán en hip hop.
+07:18
+Creemos que tanto.
+07:21
+
+07:21
+Y eso sería todo sin nada más que decir.
+07:25
+Esa sería la presentación del proyecto de.
+07:28
+Programación.
